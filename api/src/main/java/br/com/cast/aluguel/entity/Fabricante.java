@@ -19,8 +19,9 @@ public class Fabricante {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public Fabricante setId(Integer id) {
 		this.id = id;
+		return this;
 	}
 
 	public String getNome() {

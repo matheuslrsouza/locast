@@ -1,0 +1,61 @@
+<form [formGroup]="form" (submit)="salvar(form.value)" novalidate>
+  
+    <div>
+      <label>Fabricante</label> <br />
+      <select formControlName="id_fabricante"
+        [class.invalido]="form.controls.id_fabricante.invalid && form.controls.id_fabricante.touched"
+        [class.valido]="form.controls.id_fabricante.valid && form.controls.id_fabricante.touched"
+        (change)="getModelos(form.value.id_fabricante)">
+        <option value="">Selecione</option>
+        <option *ngFor="let f of fabricantes | async" [value]="f.id">{{ f.nome }}</option>
+      </select>
+      <div class="div-erros" 
+        *ngIf="form.controls.id_fabricante.invalid && form.controls.id_fabricante.touched">
+        <p *ngIf="form.controls.id_fabricante.errors.required">Campo Obrigatório</p>
+      </div>
+    </div>
+    
+    <div>
+      <label>Modelo</label> <br />
+      <select formControlName="id_modelo"
+        [class.invalido]="form.controls.id_modelo.invalid && form.controls.id_modelo.touched"
+        [class.valido]="form.controls.id_modelo.valid && form.controls.id_modelo.touched">
+        <option value="">Selecione</option>
+        <option *ngFor="let m of modelos | async" [value]="m.id">{{ m.nome }}</option>
+      </select>
+      <div class="div-erros" 
+        *ngIf="form.controls.id_modelo.invalid && form.controls.id_modelo.touched">
+        <p *ngIf="form.controls.id_modelo.errors.required">Campo Obrigatório</p>
+      </div>
+    </div>
+  
+  <div>
+    <label>Placa</label> <br />
+    <input type="text" formControlName="placa" maxlength="7"
+      [class.invalido]="form.controls.placa.invalid && form.controls.placa.touched"
+      [class.valido]="form.controls.placa.valid && form.controls.placa.touched" />
+    <div class="div-erros">
+      <p>{{ mensagemErro }}</p>
+    </div>
+    <div class="div-erros" 
+      *ngIf="form.controls.placa.invalid && form.controls.placa.touched">
+      <p *ngIf="form.controls.placa.errors.required">Campo Obrigatório</p>
+      <p *ngIf="form.controls.placa.errors.pattern">Placa inválida</p>
+    </div>
+  </div>
+  
+  <div>
+    <label>Ano</label> <br />
+    <input type="text" formControlName="ano" maxlength="4"
+      [class.invalido]="form.controls.ano.invalid && form.controls.ano.touched"
+      [class.valido]="form.controls.ano.valid && form.controls.ano.touched"/>
+    <div class="div-erros" 
+      *ngIf="form.controls.ano.invalid && form.controls.ano.touched">
+      <p *ngIf="form.controls.ano.errors.required">Campo Obrigatório</p>
+      <p *ngIf="form.controls.ano.errors.pattern">Ano inválido</p>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Salvar</button>
+
+</form>

@@ -25,8 +25,9 @@ public class Modelo {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public Modelo setId(Integer id) {
 		this.id = id;
+		return this;
 	}
 
 	public String getNome() {

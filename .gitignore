@@ -1,0 +1,11 @@
+api/.settings/
+api/target/
+api/.classpath/
+api/.project/
+api/mvnw
+api/mvnw.cmd
+
+html/node_modules/
+html/.DS_Store
+
+.DS_Store

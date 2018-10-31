@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Placa</th>
+      <th>Ano</th>
+      <th>Modelo</th>
+      <th>Nome do Fabricante</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let veiculo of veiculos | async">
+      <td>{{ veiculo.placa }}</td>
+      <td>{{ veiculo.ano }}</td>
+      <td>{{ veiculo.modelo }}</td>
+      <td>{{ veiculo.fabricante }}</td>
+    </tr>
+  </tbody>
+</table>
